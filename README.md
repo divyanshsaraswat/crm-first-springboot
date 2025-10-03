@@ -1,8 +1,59 @@
-# Spring CRM REST API
+<div align="center">
+
+# 🏢 Spring CRM REST API
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://openjdk.java.net/projects/jdk/17/)
+[![Maven](https://img.shields.io/badge/Maven-3.9.5-blue.svg)](https://maven.apache.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://www.docker.com/)
+[![Prometheus](https://img.shields.io/badge/Monitoring-Prometheus-E6522C.svg)](https://prometheus.io/)
+[![Grafana](https://img.shields.io/badge/Dashboard-Grafana-F46800.svg)](https://grafana.com/)
+
+*Enterprise-grade CRM solution with comprehensive monitoring and observability*
+
+</div>
 
 A comprehensive Customer Relationship Management (CRM) REST API built with Spring Boot 3.x, featuring user management, contact management, account management, task tracking, lead management, opportunity tracking, and campaign management with JWT authentication and role-based authorization.
 
-## Features
+## 📋 Table of Contents
+
+- [🚀 Quick Start](#-quick-start)
+- [✨ Features](#-features)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [📁 Project Structure](#-project-structure)
+- [⚙️ Setup Instructions](#️-setup-instructions)
+- [📊 Telemetry Stack](#-telemetry-stack)
+- [🔗 API Endpoints](#-api-endpoints)
+- [🔐 Authentication & Authorization](#-authentication--authorization)
+- [🗄️ Database Schema](#️-database-schema)
+- [📈 Monitoring & Metrics](#-monitoring--metrics)
+- [🧪 Development](#-development)
+- [🚀 Production Deployment](#-production-deployment)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [💬 Support](#-support)
+
+## 🚀 Quick Start
+
+```bash
+# Clone and setup
+git clone <repository-url>
+cd spring-crm
+
+# Copy your .env file (same as Node.js project)
+cp ../express-mssql-api/.env .
+
+# Run with Maven
+mvn spring-boot:run
+
+# Or run with Docker
+docker-compose up -d
+```
+
+**API Documentation**: [Swagger UI](http://localhost:8080/swagger-ui.html) | **Monitoring**: [Grafana](http://localhost:3000)
+
+## ✨ Features
 
 ### Core Functionality
 - **User Management**: Registration, authentication, role-based access control
@@ -33,7 +84,7 @@ A comprehensive Customer Relationship Management (CRM) REST API built with Sprin
 - **Comprehensive DTOs**: Well-defined request/response objects
 - **Validation**: Input validation with Hibernate Validator
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 - **Framework**: Spring Boot 3.2.0
 - **Language**: Java 17
@@ -45,7 +96,7 @@ A comprehensive Customer Relationship Management (CRM) REST API built with Sprin
 - **Build Tool**: Maven
 - **Testing**: JUnit 5, TestContainers
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 spring-crm/
@@ -68,7 +119,7 @@ spring-crm/
 └── docker-compose.telemetry.yml
 ```
 
-## Quick Start
+## ⚙️ Setup Instructions
 
 ### Prerequisites
 - Java 17 or higher
@@ -124,7 +175,7 @@ The application will start on `http://localhost:8080`
 - **Actuator Health**: `http://localhost:8080/api/actuator/health`
 - **Prometheus Metrics**: `http://localhost:8080/api/actuator/prometheus`
 
-## Telemetry Stack Setup
+## 📊 Telemetry Stack
 
 ### Start Monitoring Stack
 ```bash
@@ -138,7 +189,7 @@ docker-compose -f docker-compose.telemetry.yml up -d
 - **Jaeger**: http://localhost:16686
 - **Loki**: http://localhost:3100
 
-## API Endpoints
+## 🔗 API Endpoints
 
 ### Authentication
 - `POST /api/users/login` - User login
@@ -192,7 +243,7 @@ docker-compose -f docker-compose.telemetry.yml up -d
 - `PUT /api/campaigns/{id}` - Update campaign
 - `DELETE /api/campaigns/{id}` - Delete campaign
 
-## Authentication & Authorization
+## 🔐 Authentication & Authorization
 
 ### JWT Token
 The API uses JWT tokens stored in HTTP-only cookies for authentication. Tokens include:
@@ -213,7 +264,7 @@ The Spring Boot implementation replicates the Node.js middleware:
 - `adminAuth` → `@PreAuthorize("hasRole('ADMIN')")`
 - `fuseAuth` → `@PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")`
 
-## Database Schema
+## 🗄️ Database Schema
 
 The application uses the following main entities:
 - **Users**: System users with roles and tenant association
@@ -227,7 +278,7 @@ The application uses the following main entities:
 - **Emails**: Email communication tracking
 - **Notifications**: User notifications
 
-## Monitoring & Metrics
+## 📈 Monitoring & Metrics
 
 ### Prometheus Metrics
 - `crm_api_requests_total` - Total API requests
@@ -244,7 +295,7 @@ The application uses the following main entities:
 - Error rate monitoring
 - System health indicators
 
-## Development
+## 🧪 Development
 
 ### Running Tests
 ```bash
@@ -261,7 +312,7 @@ mvn verify
 - Implement comprehensive error handling
 - Write unit and integration tests
 
-## Production Deployment
+## 🚀 Production Deployment
 
 ### Environment Variables
 The application uses the same environment variables as your Node.js project. Create a `.env` file with:
@@ -284,7 +335,7 @@ docker build -t spring-crm .
 docker-compose up -d
 ```
 
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -292,11 +343,37 @@ docker-compose up -d
 4. Add tests for new functionality
 5. Submit a pull request
 
-## License
+## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
-## Support
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+### MIT License
+
+Copyright (c) 2024 Spring CRM
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+**Full License Text**: [MIT License](https://opensource.org/licenses/MIT)
+
+## 💬 Support
 
 For support and questions:
 - Create an issue in the repository
