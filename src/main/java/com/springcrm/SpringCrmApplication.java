@@ -1,6 +1,5 @@
 package com.springcrm;
 
-import me.paulschwarz.springdotenv.annotation.EnableDotenv;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
@@ -16,12 +15,11 @@ import org.springframework.scheduling.annotation.EnableAsync;
  * - Prometheus metrics
  * - Swagger/OpenAPI documentation
  * - MSSQL database integration
- * - .env file support (same as Node.js project)
+ * - Environment variable support (same as Node.js project)
  */
 @SpringBootApplication
 @EnableJpaAuditing
 @EnableAsync
-@EnableDotenv
 public class SpringCrmApplication {
 
     public static void main(String[] args) {

@@ -1,7 +1,6 @@
 package com.springcrm.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -28,12 +27,12 @@ public class Email {
     @Column(name = "body", columnDefinition = "NVARCHAR(MAX)")
     private String body;
     
-    @Email
+    @jakarta.validation.constraints.Email
     @NotBlank
     @Column(name = "sender_email", nullable = false)
     private String senderEmail;
     
-    @Email
+    @jakarta.validation.constraints.Email
     @NotBlank
     @Column(name = "recipient_email", nullable = false)
     private String recipientEmail;
