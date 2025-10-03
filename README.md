@@ -81,19 +81,30 @@ spring-crm/
 2. Create a database named `maindb`
 3. Update database connection details in `application.yml`
 
-### 2. Application Configuration
-Update `src/main/resources/application.yml` with your configuration:
+### 2. Environment Configuration
+Create a `.env` file in the project root (same as your Node.js project):
 
-```yaml
-spring:
-  datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=maindb;trustServerCertificate=true;encrypt=false
-    username: your_username
-    password: your_password
-  security:
-    jwt:
-      secret: your_jwt_secret_key
+```bash
+# Database Configuration (same as Node.js project)
+DB_SERVER=localhost
+DB_USER=sa
+DB_PASSWORD=YourStrong@Passw0rd
+DB_DATABASE=maindb
+
+# Server Configuration
+PORT=8080
+
+# JWT Configuration
+JWT_SECRET=mySecretKeyForJWTTokenGeneration
+
+# Email Configuration
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=your_email@gmail.com
+MAIL_PASSWORD=your_app_password
 ```
+
+The Spring Boot application will automatically load these environment variables from the `.env` file, just like your Node.js project.
 
 ### 3. Build and Run
 ```bash
@@ -253,10 +264,12 @@ mvn verify
 ## Production Deployment
 
 ### Environment Variables
-Set the following environment variables:
+The application uses the same environment variables as your Node.js project. Create a `.env` file with:
+- `DB_SERVER` - Database server host
 - `DB_USER` - Database username
 - `DB_PASSWORD` - Database password
-- `DB_SERVER` - Database server host
+- `DB_DATABASE` - Database name
+- `PORT` - Server port
 - `JWT_SECRET` - JWT signing secret
 - `MAIL_HOST` - SMTP server host
 - `MAIL_USERNAME` - SMTP username

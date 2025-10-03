@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: ${PORT:8080}
   servlet:
     context-path: /api
 
@@ -8,7 +8,7 @@ spring:
     name: spring-crm
   
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=maindb;trustServerCertificate=true;encrypt=false
+    url: jdbc:sqlserver://${DB_SERVER:localhost}:1433;databaseName=${DB_DATABASE:maindb};trustServerCertificate=true;encrypt=false
     username: ${DB_USER:sa}
     password: ${DB_PASSWORD:your_password}
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
