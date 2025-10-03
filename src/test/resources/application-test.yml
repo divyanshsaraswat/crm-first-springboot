@@ -1,0 +1,50 @@
+server:
+  port: 0  # Random port for tests
+
+spring:
+  application:
+    name: spring-crm-test
+  
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+    database-platform: org.hibernate.dialect.H2Dialect
+    
+  security:
+    jwt:
+      secret: test-secret-key-for-testing-only
+      expiration: 3600000 # 1 hour for tests
+      
+  mail:
+    host: localhost
+    port: 1025
+    username: test
+    password: test
+
+# Actuator endpoints for tests
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+# Logging for tests
+logging:
+  level:
+    com.springcrm: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
